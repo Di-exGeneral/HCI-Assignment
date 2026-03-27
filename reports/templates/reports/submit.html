@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Submit a Fault Report</title>
+</head>
+<body>
+    <h1>Report a Fault</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label>Name</label>
+        <input type="text" name="name" required>
+
+        <label>Phone</label>
+        <input type="tel" name="phone" required>
+
+        <label>Email</label>
+        <input type="email" name="email" required>
+
+        <label>Description</label>
+        <textarea name="description" required></textarea>
+
+        <label>Photo of fault</label>
+        <input type="file" name="photo" accept="image/*" required>
+
+        <button type="submit">Submit Report</button>
+    </form>
+</body>
+</html>

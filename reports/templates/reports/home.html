@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CommunityFix</title>
+    <link rel="stylesheet" href="{% static 'reports/css/style.css' %}">
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo">CommunityFix</a>
+        <div>
+            <a href="/reports/submit/">Report a Fault</a>
+            <a href="/tracking/track/">Track a Report</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="card hero">
+            <h1>Report Community Faults Easily</h1>
+            <p>Submit and track service delivery issues in your area. No account needed, just your details and a photo.</p>
+            <a href="/reports/submit/" class="btn">Report a Fault</a>
+            <a href="/tracking/track/" class="btn btn-outline">Track a Report</a>
+
+            <div class="features">
+                <div class="feature-card">
+                    <h3>No Account Needed</h3>
+                    <p>Submit a report with just your name, phone, and email address.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Get a Reference Number</h3>
+                    <p>Every report gets a unique reference number you can use to track progress.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Stay Notified</h3>
+                    <p>Receive updates via phone or email every time your report status changes.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Track Your Report</title>
+</head>
+<body>
+    <h1>Track Your Report</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label>Reference Number</label>
+        <input type="text" name="reference" placeholder="Enter your reference number" required>
+
+        <button type="submit">Track Report</button>
+    </form>
+</body>
+</html>
