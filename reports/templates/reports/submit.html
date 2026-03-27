@@ -1,29 +1,49 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Submit a Fault Report</title>
+    <title>Report a Fault</title>
+    <link rel="stylesheet" href="{% static 'reports/css/style.css' %}">
 </head>
 <body>
-    <h1>Report a Fault</h1>
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <label>Name</label>
-        <input type="text" name="name" required>
+    <nav>
+        <a href="/" class="logo">CommunityFix</a>
+        <div>
+            <a href="/reports/submit/">Report a Fault</a>
+            <a href="/tracking/track/">Track a Report</a>
+        </div>
+    </nav>
 
-        <label>Phone</label>
-        <input type="tel" name="phone" required>
+    <div class="container">
+        <div class="card">
+            <h1>Report a Fault</h1>
+            <p class="subtitle">Fill in your details and describe the problem. You will receive a reference number after submission.</p>
 
-        <label>Email</label>
-        <input type="email" name="email" required>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
 
-        <label>Description</label>
-        <textarea name="description" required></textarea>
+                <label>Full Name</label>
+                <input type="text" name="name" placeholder="Enter your full name" required>
 
-        <label>Photo of fault</label>
-        <input type="file" name="photo" accept="image/*" required>
+                <label>Phone Number</label>
+                <input type="tel" name="phone" placeholder="Enter your phone number" required>
 
-        <button type="submit">Submit Report</button>
-    </form>
+                <label>Email Address</label>
+                <input type="email" name="email" placeholder="Enter your email address">
+
+                <label>Fault Description</label>
+                <textarea name="description" placeholder="Describe the fault in detail" required></textarea>
+
+                <label>Photo of Fault</label>
+                <input type="file" name="photo" accept="image/*" required>
+
+                <button type="submit" class="btn">Submit Report</button>
+            </form>
+        </div>
+    </div>
+
+<script src="{% static 'reports/js/submit.js' %}"></script>
+
 </body>
 </html>
