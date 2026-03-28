@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Report</title>
+    <link rel="stylesheet" href="{% static 'reports/css/style.css' %}">
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo">CommunityFix</a>
+        <div>
+            <a href="/reports/submit/">Report a Fault</a>
+            <a href="/tracking/track/">Track a Report</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="card">
+            <h1>Edit Report</h1>
+            <p class="subtitle">Reference: {{ report.reference_number }}</p>
+
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <label>Fault Type</label>
+                <select name="fault_type" required>
+                    <option value="water" {% if report.fault_type == 'water' %}selected{% endif %}>Water Issue</option>
+                    <option value="electricity" {% if report.fault_type == 'electricity' %}selected{% endif %}>Electricity Fault</option>
+                    <option value="pothole" {% if report.fault_type == 'pothole' %}selected{% endif %}>Pothole</option>
+                    <option value="waste" {% if report.fault_type == 'waste' %}selected{% endif %}>Waste Collection</option>
+                    <option value="sewage" {% if report.fault_type == 'sewage' %}selected{% endif %}>Sewage Problem</option>
+                    <option value="other" {% if report.fault_type == 'other' %}selected{% endif %}>Other</option>
+                </select>
+
+                <label>Description</label>
+                <textarea name="description" required>{{ report.description }}</textarea>
+
+                <label>Update Photo (optional)</label>
+                <input type="file" name="photo" accept="image/*">
+
+                <button type="submit" class="btn">Save Changes</button>
+                <a href="/tracking/track/" class="btn btn-outline">Cancel</a>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

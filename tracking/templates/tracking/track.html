@@ -22,12 +22,50 @@
 
             <form method="post">
                 {% csrf_token %}
-
                 <label>Reference Number</label>
                 <input type="text" name="reference" placeholder="Enter your reference number" required>
-
                 <button type="submit" class="btn">Track Report</button>
             </form>
+
+            {% if error %}
+            <div style="margin-top: 24px; padding: 16px; background: #FCEBEB; border-radius: 8px; color: #A32D2D; font-size: 14px;">
+                {{ error }}
+            </div>
+            {% endif %}
+
+            {% if report %}
+            <div style="margin-top: 32px; border-top: 1.5px solid #e8e6df; padding-top: 32px;">
+                <h2 style="font-size: 20px; color: #0F6E56; margin-bottom: 20px;">Report Details</h2>
+
+                <label>Reference Number</label>
+                <input type="text" value="{{ report.reference_number }}" disabled>
+
+                <label>Fault Type</label>
+                <input type="text" value="{{ report.fault_type }}" disabled>
+
+                <label>Description</label>
+                <textarea disabled>{{ report.description }}</textarea>
+
+                <label>Submitted On</label>
+                <input type="text" value="{{ report.submitted_at|date:'d M Y' }}" disabled>
+
+                <label>Current Status</label>
+                <input type="text" value="{{ report.get_status_display }}" disabled
+                    style="font-weight: 600; color: #0F6E56;">
+
+                {% if report.photo %}
+                <label>Photo</label>
+                <img src="{{ report.photo.url }}" alt="Fault photo" style="width: 100%; border-radius: 8px; margin-top: 8px;">
+                {% endif %}
+
+		{% if report.status == 'pending' %}
+		<div style="margin-top: 28px; display: flex; gap: 12px;">
+  			<a href="/tracking/edit/{{ report.reference_number }}/" class="btn">Edit Report</a>
+    			<a href="/tracking/cancel/{{ report.reference_number }}/" class="btn btn-outline" style="border-color: #E24B4A; color: #E24B4A;">Cancel Report</a>
+		</div>
+		{% endif %}
+            </div>
+            {% endif %}
         </div>
     </div>
 </body>
