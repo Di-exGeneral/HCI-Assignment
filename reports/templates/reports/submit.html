@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <title>Report a Fault</title>
     <link rel="stylesheet" href="{% static 'reports/css/style.css' %}">
-</head>
+   </head>
+
+
 <body>
     <nav>
         <a href="/" class="logo">CommunityFix</a>
@@ -32,6 +34,10 @@
                 <label>Email Address</label>
                 <input type="email" name="email" placeholder="Enter your email address">
 
+		<label>Location</label>
+		<input type="text" name="address" id="address-input" placeholder="Enter your address or area">
+		<input type="hidden" name="latitude" id="latitude">
+		<input type="hidden" name="longitude" id="longitude">
 
 		<label>Fault Type</label>
 		<select name="fault_type" required>

@@ -4,7 +4,9 @@ const phoneInput = document.querySelector('input[name="phone"]');
 const descInput = document.querySelector('textarea[name="description"]');
 const photoInput = document.querySelector('input[name="photo"]');
 const faultTypeInput = document.querySelector('select[name="fault_type"]');
-
+const toggleMapBtn = document.getElementById('toggle-map-btn');
+const mapContainer = document.getElementById('map-container');
+const addressInput = document.getElementById('address-input');
 
 function setError(input) {
     if (input.tagName === 'SELECT') {
@@ -82,3 +84,4 @@ form.addEventListener('submit', function(e) {
     form.submit();
    // alert('Your report has been submitted. You will receive a reference number shortly.');
 });
+

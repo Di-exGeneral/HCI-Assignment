@@ -37,6 +37,7 @@
                     <tr>
                         <th>Reference</th>
                         <th>Name</th>
+			<th>Address</th>
                         <th>Fault Type</th>
                         <th>Status</th>
                         <th>Submitted</th>
@@ -48,6 +49,7 @@
                     <tr>
                         <td>{{ report.reference_number }}</td>
                         <td>{{ report.name }}</td>
+			<td>{{ report.address|default:"Not provided" }}</td>
                         <td>{{ report.fault_type }}</td>
                         <td>
                             <span class="badge badge-{{ report.status }}">

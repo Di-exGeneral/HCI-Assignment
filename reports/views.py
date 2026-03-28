@@ -8,13 +8,16 @@ def home(request):
 def submit_report(request):
     if request.method == 'POST':
         report = Report(
-            name=request.POST.get('name'),
-            phone=request.POST.get('phone'),
-            email=request.POST.get('email'),
-            fault_type=request.POST.get('fault_type'),
-            description=request.POST.get('description'),
-            photo=request.FILES.get('photo'),
-        )
+        name=request.POST.get('name'),
+        phone=request.POST.get('phone'),
+        email=request.POST.get('email'),
+        fault_type=request.POST.get('fault_type'),
+        description=request.POST.get('description'),
+        photo=request.FILES.get('photo'),
+        address=request.POST.get('address'),
+        latitude=request.POST.get('latitude') or None,
+        longitude=request.POST.get('longitude') or None,
+    )
         report.save()
         return render(request, 'reports/success.html', {'reference': report.reference_number})
     return render(request, 'reports/submit.html')

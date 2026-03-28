@@ -23,6 +23,9 @@
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
 
+		<label>Address</label>
+		<input type="text" name="address" value="{{ report.address|default:'' }}" placeholder="Enter your address or area">
+
                 <label>Fault Type</label>
                 <select name="fault_type" required>
                     <option value="water" {% if report.fault_type == 'water' %}selected{% endif %}>Water Issue</option>

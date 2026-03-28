@@ -27,6 +27,7 @@ def edit_report(request, reference_number):
     if report.status != 'pending':
         return redirect('track_report')
     if request.method == 'POST':
+        report.address = request.POST.get('address')
         report.fault_type = request.POST.get('fault_type')
         report.description = request.POST.get('description')
         if request.FILES.get('photo'):
