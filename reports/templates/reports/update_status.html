@@ -26,7 +26,7 @@
 	    <input type="text" value="{{ report.address|default:'Not provided' }}" disabled>
 
             <label>Fault Type</label>
-            <input type="text" value="{{ report.fault_type }}" disabled>
+            <input type="text" value="{{ report.get_fault_type_display }}" disabled>
 
             <label>Description</label>
             <textarea disabled>{{ report.description }}</textarea>

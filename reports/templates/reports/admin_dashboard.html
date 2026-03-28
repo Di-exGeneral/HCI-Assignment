@@ -50,7 +50,7 @@
                         <td>{{ report.reference_number }}</td>
                         <td>{{ report.name }}</td>
 			<td>{{ report.address|default:"Not provided" }}</td>
-                        <td>{{ report.fault_type }}</td>
+                        <td>{{ report.get_fault_type_display }}</td>
                         <td>
                             <span class="badge badge-{{ report.status }}">
                                 {{ report.get_status_display }}
@@ -59,7 +59,9 @@
                         <td>{{ report.submitted_at|date:"d M Y" }}</td>
                         <td>
                             <a href="/reports/update-status/{{ report.reference_number }}/" class="btn" style="padding: 8px 16px; font-size: 13px; margin-top: 0;">Update</a>
-                        </td>
+			{% if report.status == 'closed' or report.status == 'resolved' %}
+			<a href="/reports/delete/{{ report.reference_number }}/" class="btn" style="padding: 8px 16px; font-size: 13px; margin-top: 0; background: #E24B4A; margin-left: 8px;">Delete</a>
+			{% endif %}                        </td>
                     </tr>
                     {% empty %}
                     <tr>

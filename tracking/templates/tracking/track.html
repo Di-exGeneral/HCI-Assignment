@@ -41,7 +41,7 @@
                 <input type="text" value="{{ report.reference_number }}" disabled>
 
                 <label>Fault Type</label>
-                <input type="text" value="{{ report.fault_type }}" disabled>
+                <input type="text" value="{{ report.get_fault_type_display }}" disabled>
 
                 <label>Description</label>
                 <textarea disabled>{{ report.description }}</textarea>

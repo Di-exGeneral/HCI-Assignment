@@ -36,4 +36,21 @@ def update_status(request, reference_number):
         return redirect('admin_dashboard')
     return render(request, 'reports/update_status.html', {'report': report})
 
+@staff_member_required
+def delete_report(request, reference_number):
+    report = get_object_or_404(Report, reference_number=reference_number)
+    if report.status not in ['closed', 'resolved']:
+        return redirect('admin_dashboard')
+    if request.method == 'POST':
+        report.delete()
+        return redirect('admin_dashboard')
+    return render(request, 'reports/delete_confirm.html', {'report': report})
+
+
+
+
+
+
+
+
 

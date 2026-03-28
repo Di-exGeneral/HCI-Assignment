@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Report</title>
+    <link rel="stylesheet" href="{% static 'reports/css/style.css' %}">
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo">CommunityFix</a>
+        <div>
+            <a href="/reports/admin-dashboard/">Admin Dashboard</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="card hero">
+            <h1>Delete Report</h1>
+            <p class="subtitle">Are you sure you want to permanently delete report <strong>{{ report.reference_number }}</strong>? This action cannot be undone.</p>
+
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn" style="background: #E24B4A;">Yes, Delete Report</button>
+                <a href="/reports/admin-dashboard/" class="btn btn-outline" style="margin-left: 12px;">Go Back</a>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

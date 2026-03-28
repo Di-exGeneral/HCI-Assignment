@@ -53,7 +53,7 @@ faultTypeInput.addEventListener('change', function() {
 });
 
 descInput.addEventListener('blur', function() {
-    if (this.value.trim() === '') {
+    if (this.value.trim().length < 20) {
         setError(this);
     } else {
         clearError(this);
@@ -75,7 +75,7 @@ form.addEventListener('submit', function(e) {
 
     if (nameInput.value.trim() === '') { setError(nameInput); return; }
     if (!phonePattern.test(phoneInput.value.trim())) { setError(phoneInput); return; }
-    if (descInput.value.trim() === '') { setError(descInput); return; }
+    if (descInput.value.trim().length < 20) { setError(descInput); return; }
     if (photoInput.files.length === 0) { setError(photoInput); return; }
     if (faultTypeInput.value === '') { setError(faultTypeInput); return; }
     const confirmed = confirm('Are you sure you want to submit this report?');
