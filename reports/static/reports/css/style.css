@@ -168,4 +168,12 @@ textarea {
 .feature-card p {
     font-size: 13px;
     color: #5F5E5A;
+
 }
+
+select.error {
+    border: 1.5px solid #E24B4A !important;
+    background-color: #FCEBEB !important;
+    outline: 2px solid #E24B4A !important;
+}
+

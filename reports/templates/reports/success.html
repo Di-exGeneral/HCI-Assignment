@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Report Submitted</title>
+    <link rel="stylesheet" href="{% static 'reports/css/style.css' %}">
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo">CommunityFix</a>
+        <div>
+            <a href="/reports/submit/">Report a Fault</a>
+            <a href="/tracking/track/">Track a Report</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="card hero">
+            <h1>Report Submitted</h1>
+            <p class="subtitle">Your fault report has been successfully submitted. Use your reference number below to track its progress.</p>
+
+            <div class="feature-card" style="margin: 32px auto; max-width: 400px;">
+                <h3>Your Reference Number</h3>
+                <p style="font-size: 18px; font-weight: 600; color: #0F6E56; margin-top: 12px;">{{ reference }}</p>
+            </div>
+
+            <a href="/" class="btn">Back to Home</a>
+            <a href="/tracking/track/" class="btn btn-outline">Track Your Report</a>
+        </div>
+    </div>
+</body>
+</html>

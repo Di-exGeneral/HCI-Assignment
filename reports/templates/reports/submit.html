@@ -32,6 +32,19 @@
                 <label>Email Address</label>
                 <input type="email" name="email" placeholder="Enter your email address">
 
+
+		<label>Fault Type</label>
+		<select name="fault_type" required>
+   			 <option value="" disabled selected>Select a fault type</option>
+			 <option value="water">Water Issue</option>
+   			 <option value="electricity">Electricity Fault</option>
+   			 <option value="pothole">Pothole</option>
+   			 <option value="waste">Waste Collection</option>
+   			 <option value="sewage">Sewage Problem</option>
+   			 <option value="other">Other</option>
+		</select>
+
+
                 <label>Fault Description</label>
                 <textarea name="description" placeholder="Describe the fault in detail" required></textarea>
 

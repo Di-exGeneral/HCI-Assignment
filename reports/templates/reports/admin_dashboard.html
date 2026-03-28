@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{% static 'reports/css/style.css' %}">
+    <style>
+        table { width: 100%; border-collapse: collapse; margin-top: 24px; }
+        th { background: #0F6E56; color: #ffffff; padding: 12px 16px; text-align: left; font-size: 14px; }
+        td { padding: 12px 16px; border-bottom: 1px solid #e8e6df; font-size: 14px; }
+        tr:hover { background: #f4f3ee; }
+        .badge { display: inline-block; padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 500; }
+        .badge-pending { background: #FAEEDA; color: #854F0B; }
+        .badge-in_progress { background: #E6F1FB; color: #185FA5; }
+        .badge-resolved { background: #EAF3DE; color: #3B6D11; }
+        .badge-disputed { background: #FCEBEB; color: #A32D2D; }
+        .badge-closed { background: #F1EFE8; color: #5F5E5A; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo">CommunityFix</a>
+        <div>
+            <a href="/reports/submit/">Report a Fault</a>
+            <a href="/tracking/track/">Track a Report</a>
+        </div>
+    </nav>
+
+    <div class="container" style="max-width: 1100px;">
+        <div class="card">
+            <h1>Admin Dashboard</h1>
+            <p class="subtitle">Manage and update community fault reports.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Reference</th>
+                        <th>Name</th>
+                        <th>Fault Type</th>
+                        <th>Status</th>
+                        <th>Submitted</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for report in reports %}
+                    <tr>
+                        <td>{{ report.reference_number }}</td>
+                        <td>{{ report.name }}</td>
+                        <td>{{ report.fault_type }}</td>
+                        <td>
+                            <span class="badge badge-{{ report.status }}">
+                                {{ report.get_status_display }}
+                            </span>
+                        </td>
+                        <td>{{ report.submitted_at|date:"d M Y" }}</td>
+                        <td>
+                            <a href="/reports/update-status/{{ report.reference_number }}/" class="btn" style="padding: 8px 16px; font-size: 13px; margin-top: 0;">Update</a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="6" style="text-align: center; color: #5F5E5A;">No reports submitted yet.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
