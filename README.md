@@ -23,36 +23,51 @@ Built as part of the NHCI63110 Human-Computer Interaction assignment at Sol Plaa
 - Plain CSS
 - Vanilla JavaScript
 
+
+
 ## Setup
 
-Clone the repository and navigate into the project directory.
+### Clone the repository and navigate into the project directory.
 ```bash
 git clone https://github.com/Di-exGeneral/HCI-Assignment.git
 cd HCI-Assignment
 ```
 
-Create and activate a virtual environment.
+### Create and activate a virtual environment.
 ```bash
 python -m venv env
+```
+
+### Activate 
+
+Windows
+```cmd
+env\Scripts\activate
+```
+
+Kali
+```bash
 source env/bin/activate
 ```
 
-Install dependencies.
+
+
+### Install dependencies.
 ```bash
 pip install django pillow
 ```
 
-Run migrations.
+### Run migrations.
 ```bash
 python manage.py migrate
 ```
 
-Create a superuser for the admin dashboard.
+### Create a superuser for the admin dashboard.
 ```bash
 python manage.py createsuperuser
 ```
 
-Start the development server.
+### Start the development server.
 ```bash
 python manage.py runserver
 ```
@@ -83,4 +98,4 @@ HCI-Assignment/
 
 ## Author
 
-Tlotliso Ledwaba — Sol Plaatje University, ICT Diploma Year 3
+Tlotliso Ledwaba
